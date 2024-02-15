@@ -1,0 +1,62 @@
+# Os localizadores funcionam melhor se forem id ou css, mas o xpath pode funcionar quando não há outro jeito, mas não é recomendado.
+# Convenção de nomenclatura: [nomeElemento_tipo - exemplo: funcionario_mn (tem um Menu com o nome Funcionário)]
+# O tipo pode ser um destes abaixo, mais podem ser adicionados conforme necessário:
+
+# Tipos de elementos da Web
+
+# mn - Item de menu / opção
+# smn - Item/opção do submenu
+# btn - Botão
+# pwd - Senha ou campo secreto
+# nmb - Qualquer número
+# txt - Campo de texto livre
+# date - Data no formato definido no sistema operacional e no navegador
+# email - campo de endereço de email
+# chk - Caixa de seleção
+# lnk - Texto do link
+# icn - Link do ícone
+# cur - Moeda
+# htm - HTML estático
+# msel - Lista de seleção onde todas as opções são listadas com uma barra de rolagem. Vários itens podem ser selecionados mantendo CRTL ou SHIFT pressionado.
+# rstxt - Redimensionável <textarea>
+# scrn - nome da captura de tela
+# sel - Lista de seleção onde todas as opções são listadas com uma barra de rolagem. Apenas um item pode ser selecionado.
+# opt - Cada opção dentro de um menu suspenso ou campos de seleção de lista.
+# rdi - Opção de rádio
+# tab - Item de guia para alternar páginas
+# lkp - Campo de texto de pesquisa, com um botão de lupa para procurar um item em uma janela pop-up
+# tbl - Tabela
+# célula - célula da tabela
+# linha - linha da tabela
+# col - Coluna da tabela
+ 
+Login:
+  doc_txt:        id=loginEmail
+  senha_pwd:      xpath=//input[@name='password']
+  entrar_btn:     xpath=//div//button[contains(text(),"Entrar")]
+  logOff_lnk:     css=a[href$="/LogOff"]
+
+Cadastro:
+  cadastrar_btn:  xpath=//div//button[contains(text(),"Cadastrar agora")]
+
+Telas:
+  home_img:                   xpath=//a[@title="← Back home"]
+  boxPagina_txt:              css=.box
+  lupaPesquisa_btn:           xpath=//span[@class="input-group-btn"]
+  boxProdutosOpcoes_opt:      css=.price-filter
+  boxProdutosCategorias_opt:  css=.widget
+  listaProdutos_col:          css=.product-list
+
+  carrinho_btn:               xpath=//a[@title="Carrinho →"]
+  boxCarrinho_form:           id=cartForm
+  boxCarrinhoTotais_col:      css=.cart-totals
+  boxCarrinhoCupom_col:       css=.cart-coupon
+  esvaziar_btn:               xpath=//a[@title="Esvaziar carrinho"]
+  compartilhar_btn:           xpath=//a[@title="Compartilhar Carrinho"]
+  fecharPedido_btn:           id=checkoutButtom
+
+  detalhesPedido_btn:         xpath=(//a[contains(@href, 'Details')])[1]
+  boxDetalhesPedido_col:      css=.order-details-header
+  boxPedidosEntrega_col:      css=.order-details-shipping
+  boxPedidosItens_col:        css=.order-details-items
+  boxPedidosTotais_col:       id=price-list

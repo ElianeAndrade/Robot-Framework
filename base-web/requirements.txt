@@ -1,0 +1,8 @@
+bcrypt
+Faker
+robotframework
+robotframework-assertion-engine
+robotframework-browser
+robotframework-databaselibrary
+pymssql
+robotframework-pythonlibcore
