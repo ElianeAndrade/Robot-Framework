@@ -1,4 +1,4 @@
-# 👋 Bem-vindo(a) ao projeto base de automações WEB! <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🤖</font></font>  
+# 👋 Bem-vindos ao projeto base de automações WEB! <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🤖</font></font>  
 
 > Esse é um projeto inicial de automação do site Havanna.
 > Esse projeto visa realizar login, cadastro, verificações de telas, atualização de dados, endereço e realização de pedidos com diversas formas de pagamento.
