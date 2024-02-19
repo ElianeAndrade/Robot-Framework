@@ -5,14 +5,14 @@ Library    Browser
 
 *Keywords*
 Realizar Cadastro 
-    [Documentation]         As opções são: CPF, CNPJ e EMAIL.
+    [Documentation]    As opções são: CPF, CNPJ e EMAIL.
     [Arguments]             ${user}          ${doc}
         
         # Montando a chave que existe no dicionário em Users.py
-        ${value} =              Set Variable               ${user}[${doc}]
+        ${value} =    Set Variable    ${user}[${doc}]
 
-        Fill Text              id=registerEmail            ${value}
-        Click                  id=btn-cadastrar-usuario 
+        Fill Text                         id=registerEmail            ${value}
+        Click                             id=btn-cadastrar-usuario 
 
     IF    '${doc}' == 'CPF'
         Wait For Elements State            id=firstNameTextBox
@@ -35,8 +35,6 @@ Realizar Cadastro
         Fill Text                          id=passwordTextBox                       ${user}[senha]  
         Fill Text                          id=confirmPasswordTextBox                ${user}[senha]
 
-        Processo Manual
-
         Click                              id=btnSalvarContato
         
         Preencher informações de Endereço   ${user}
@@ -55,12 +53,9 @@ Realizar Cadastro
         Click                               xpath=(//span[contains(@class,'switch-lever')])[1]
     
         Fill Text                          id=phone2TextBox                         ${user}[celular]
-            
+    
         Fill Text                          id=passwordTextBox                       ${user}[senha]  
         Fill Text                          id=confirmPasswordTextBox                ${user}[senha]
-        
-        Processo Manual
-
         Click                              id=btnSalvarContato
 
         Preencher informações de Endereço   ${user}
@@ -87,8 +82,6 @@ Realizar Cadastro
         Fill Text                          id=passwordTextBox                       ${user}[senha]  
         Fill Text                          id=confirmPasswordTextBox                ${user}[senha]
 
-        Processo Manual
-
         Click                              id=btnSalvarContato
         
         Preencher informações de Endereço   ${user}
@@ -97,44 +90,38 @@ Realizar Cadastro
 
 
 Preencher informações de Endereço 
-    [Arguments]                         ${user}  
+    [Arguments]                        ${user}  
     
-    Wait For Elements State              css=input[id=postalCodeTextBox]
+    Wait For Elements State              id=postalCodeTextBox   
     ...    visible    20
    
-    Type Text                            css=input[id=postalCodeTextBox]                        ${user}[cep]    
-    Sleep                                5s
+    Type Text                            id=postalCodeTextBox                                 ${user}[cep]    
+    Sleep                                3s
     
-    Wait For Elements State              css=input[id=numberTextBox]        focused             ${TIMEOUT}           
+    Wait For Elements State               id=numberTextBox    focused     ${TIMEOUT}
     
+    Fill Text                             id=numberTextBox                                     ${user}[logradouro]  
+    Fill Text                             id=complementTextBox                                 ${user}[comp]
+    #Fill Text                             id=referenceTextBox                                  ${user}[ref]
+    Fill Text                             css=input[name='Address.Description']                ${user}[desc]
 
-    Fill Text                            css=input[id=numberTextBox]                                 ${user}[logradouro]  
-    Fill Text                            css=input[id=complementTextBox]                             ${user}[comp]
-    Fill Text                            css=input[name='Address.Description']                       ${user}[desc]
-
-    Click                                css=button[id='btnSalvarContato']
+    Click                                 css=button[class='btn btn-primary']
 
     Take Screenshot
 
 Aceitar Termos e Condições
+    Sleep   10s
+    
     Click    xpath=(//span[contains(@class,'checkbox-checkmark')])[1]
     Click    xpath=(//span[contains(@class,'checkbox-checkmark')])[2]
 
     Click    id=AcceptButton
-    Take Screenshot
+
 
 Cadastrar usuário que já existe na base
-    [arguments]                           ${user}
+    [arguments]            ${user}
 
-    Fill Text                             id=registerEmail            ${user}[ja_cadastrado]
-    Click                                 id=btn-cadastrar-usuario 
-    Wait For Elements State               css=div[id='registerForm_server_validation']    visible    10
-    Take Screenshot
-
-Cadastrar usuário que já existe na base - PJ
-    [arguments]                           ${user}
-
-    Fill Text                             id=registerEmail                           ${user}[ja_cadastrado_pj]
-    Click                                 id=btn-cadastrar-usuario 
+    Fill Text              id=registerEmail            ${user}[ja_cadastrado]
+    Click                  id=btn-cadastrar-usuario 
     Wait For Elements State               css=div[id='registerForm_server_validation']    visible    10
     Take Screenshot

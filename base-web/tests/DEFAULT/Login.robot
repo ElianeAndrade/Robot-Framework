@@ -1,38 +1,29 @@
-*** Settings ***
-Documentation       Login
+*Settings*
+Documentation    Teste Segurança de Login 
+Resource         ${EXECDIR}/resources/Base.robot
 
-Resource            ../../resources/Base.resource
+Suite Setup      Start Session      
+Test Teardown    Take Screenshot
+Library          Browser
 
-Suite Setup         Iniciar Sessão
-Test Teardown       Finalizar Sessão
+*Test Cases*
+Verificação de Login - CPF
+    Realizar login     CPF
+    Logoff
 
+Verificação de Login - CNPJ
+    Realizar login     CNPJ   
+    Logoff
 
-*** Test Cases ***
-01 - Cenários de Login - CPF
-
-     IF   '${CAMPANHA_CONFIG}[URL_Sigla]' == 'LACPF'
-          Realizar login         CPF
-          Logoff
-
-     ELSE IF   '${CAMPANHA_CONFIG}[URL_Sigla]' == 'LACPJ'
-          Realizar login         CNPJ
-          Logoff
-     END
-
-02 - Cenários de Login - EMAIL  
-     Realizar login         EMAIL
-     Logoff
-
-03 - Cenários de Login - Senha Inválida 
+Verificação de Login - Senha Inválida 
     ${senha}    Factory User    senhainv
-        
+    ${login}    Factory User    logininv
+    
     Acessar página de Login
     Rotina para realizar o Login    ${senha}
-        
-04 - Cenários de Login - Usuário Inválido 
-    ${login}    Factory User    logininv
-        
-    Acessar página de Login
     Rotina para realizar o Login    ${login}
-    
-    
+
+
+
+
+
