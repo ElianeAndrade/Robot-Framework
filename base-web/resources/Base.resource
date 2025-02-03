@@ -50,23 +50,8 @@ Retornar os dados do ambiente de testes
 
 
     ${campanha_teste}=    Set Variable If
-    ...                   '${CAMPANHAID}' == 'BRHAV'   ${BRHAV}
-    ...                   '${CAMPANHAID}' == 'MCPOR'   ${MCPOR}
-    ...                   '${CAMPANHAID}' == 'TOPUF'   ${TOPUF}
-    ...                   '${CAMPANHAID}' == 'TOPUN'   ${TOPUN}
-    ...                   '${CAMPANHAID}' == 'TOPUO'   ${TOPUO}
-    ...                   '${CAMPANHAID}' == 'TOPUP'   ${TOPUP}
-    ...                   '${CAMPANHAID}' == 'MEBRE'   ${MEBRE}
-    ...                   '${CAMPANHAID}' == 'BRNXB'   ${BRNXB}
-    ...                   '${CAMPANHAID}' == 'BRNXG'   ${BRNXG}
-    ...                   '${CAMPANHAID}' == 'BRNXP'   ${BRNXP}
-    ...                   '${CAMPANHAID}' == 'BRPLN'   ${BRPLN}   
-    ...                   '${CAMPANHAID}' == 'BRLIT'   ${BRLIT}  
-    ...                   '${CAMPANHAID}' == 'BRVIT'   ${BRVIT}
-    ...                   '${CAMPANHAID}' == 'BRPLN'   ${BRPLN}
-    ...                   '${CAMPANHAID}' == 'BRLOJ'   ${BRLOJ}
-    ...                   '${CAMPANHAID}' == 'MIPMK'   ${MIPMK}
-    ...                   '${CAMPANHAID}' == 'MEGOO'   ${MEGOO}
+    ...                   '${CAMPANHAID}' == 'SiteA'   ${SiteA}
+
            
 
 

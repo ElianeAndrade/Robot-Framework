@@ -1,7 +1,7 @@
 HAVANNA = {
-    'URL_PROD':"https://havanna.com.br",
+    'URL_PROD':"https://SiteA.com.br",
     'USER_CREDENTIALS':[
-        {'AMBIENTE': "PROD",'CPF': "47498928825", 'EMAIL':"", 'PASSWORD': "Teste@123"}
+        {'AMBIENTE': "PROD",'CPF': "123456789", 'EMAIL':"", 'PASSWORD': "Teste@123"}
     ]
 }
 
